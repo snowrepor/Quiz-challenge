@@ -57,7 +57,6 @@ timer.addEventListener("click", function () {
 });
 
 function render(questionIndex) {
-    // Clears existing data 
     questionsDiv.innerHTML = "";
     ulCreate.innerHTML = "";
     for (var i = 0; i < questions.length; i++) {
@@ -72,4 +71,32 @@ function render(questionIndex) {
         ulCreate.appendChild(listItem);
         listItem.addEventListener("click", (compare));
     })
+}
+
+function compare(event) {
+    var element = event.target;
+
+    if (element.matches("li")) {
+
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("id", "createDiv");
+        if (element.textContent == questions[questionIndex].answer) {
+            score++;
+            createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
+        } else {
+            secondsLeft = secondsLeft - penalty;
+            createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
+        }
+
+    }
+    questionIndex++;
+
+    if (questionIndex >= questions.length) {
+        allDone();
+        createDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
+    } else {
+        render(questionIndex);
+    }
+    questionsDiv.appendChild(createDiv);
+
 }
