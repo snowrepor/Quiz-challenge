@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    
+    <title>Home page</title>
 </head>
+
 <body>
-    <div class="container"></div>
-        <div id="home" class="flex-column flex-center">
-            <h1>Are you Ready?</h1>
-            <a href="/game.html" class="btn">play</a>
-            <a href="highscores.html" id="highscore-btn" class="btn">High Scores<i class="fas fa-crown"></i></a>
+    <a href="HighScores.html">View Highscores</a>
+    <div id="wrapper">
+        <div id="currentTime"></div>
+        <div id="questionsDiv">
+            <h1>Web API Quiz</h1>
+            <p></p>
+            <ul id="choicesUl"></ul>
+            <button id="startTime">Ready to Play?</button>
         </div>
+
     </div>
+
+
+    <script src="questions.js"></script>
+
+
 </body>
+
 </html>
