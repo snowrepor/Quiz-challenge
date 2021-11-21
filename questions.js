@@ -93,7 +93,7 @@ function compare(event) {
 
     if (questionIndex >= questions.length) {
         allDone();
-        createDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
+        createDiv.textContent = "End of game!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
     } else {
         render(questionIndex);
     }
@@ -106,7 +106,7 @@ function allDone() {
 
     var createH1 = document.createElement("h1");
     createH1.setAttribute("id", "createH1");
-    createH1.textContent = "All Done!"
+    createH1.textContent = "Done!"
 
     questionsDiv.appendChild(createH1);
 
