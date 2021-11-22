@@ -1,3 +1,4 @@
+// Variable with an array and object creates questions
 var questions = [
     {
         title: "Arrays in Javascript can be used to store ____.",
@@ -27,6 +28,7 @@ var questions = [
 
 ];
 
+// Variables
 var score = 0;
 var questionIndex = 0;
 
@@ -35,12 +37,21 @@ var timer = document.querySelector("#startTime");
 var questionsDiv = document.querySelector("#questionsDiv");
 var wrapper = document.querySelector("#wrapper");
 
+// Seconds left 15 for each question
 var secondsLeft = 76;
+
+// Holds interval time
 var holdInterval = 0;
+
+// Holds penalty time
 var penalty = 10;
+
+// Creates new element
 var ulCreate = document.createElement("ul");
 
+// Starts timer
 timer.addEventListener("click", function () {
+    // Checking if zero
     if (holdInterval === 0) {
         holdInterval = setInterval(function () {
             secondsLeft--;
@@ -56,14 +67,18 @@ timer.addEventListener("click", function () {
     render(questionIndex);
 });
 
+// Renders questions and choices to index.html
 function render(questionIndex) {
     questionsDiv.innerHTML = "";
     ulCreate.innerHTML = "";
+    // For loops through array info
     for (var i = 0; i < questions.length; i++) {
         var userQuestion = questions[questionIndex].title;
         var userChoices = questions[questionIndex].choices;
         questionsDiv.textContent = userQuestion;
     }
+
+    // New for each question choice
     userChoices.forEach(function (newItem) {
         var listItem = document.createElement("li");
         listItem.textContent = newItem;
@@ -73,6 +88,7 @@ function render(questionIndex) {
     })
 }
 
+// Event compares choices against answer
 function compare(event) {
     var element = event.target;
 
@@ -80,18 +96,28 @@ function compare(event) {
 
         var createDiv = document.createElement("div");
         createDiv.setAttribute("id", "createDiv");
+        
+         // Correct condition
         if (element.textContent == questions[questionIndex].answer) {
             score++;
             createDiv.textContent = "Correct! The answer is:  " + questions[questionIndex].answer;
+            
+            // Correct condition
         } else {
+            
+            // Deducts 5 seconds from secondsLeft when answers in not selected
             secondsLeft = secondsLeft - penalty;
             createDiv.textContent = "Wrong! The correct answer is:  " + questions[questionIndex].answer;
         }
 
     }
+
+    // Determines number question user is on
     questionIndex++;
 
     if (questionIndex >= questions.length) {
+        
+        // All done will append last page with user stats
         allDone();
         createDiv.textContent = "End of game!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
     } else {
@@ -100,21 +126,26 @@ function compare(event) {
     questionsDiv.appendChild(createDiv);
 
 }
+
+// / All done will append last page
 function allDone() {
     questionsDiv.innerHTML = "";
     currentTime.innerHTML = "";
 
+    // Heading
     var createH1 = document.createElement("h1");
     createH1.setAttribute("id", "createH1");
     createH1.textContent = "Done!"
 
     questionsDiv.appendChild(createH1);
 
+    // Paragraph
     var createP = document.createElement("p");
     createP.setAttribute("id", "createP");
 
     questionsDiv.appendChild(createP);
 
+    // User time remaining + score = high score
     if (secondsLeft >= 0) {
         var timeRemaining = secondsLeft;
         var createP2 = document.createElement("p");
@@ -124,12 +155,14 @@ function allDone() {
         questionsDiv.appendChild(createP2);
     }
 
+    // Label
     var createLabel = document.createElement("label");
     createLabel.setAttribute("id", "createLabel");
     createLabel.textContent = "Enter your initials: ";
 
     questionsDiv.appendChild(createLabel);
 
+    // Input
     var createInput = document.createElement("input");
     createInput.setAttribute("type", "text");
     createInput.setAttribute("id", "initials");
@@ -137,6 +170,7 @@ function allDone() {
 
     questionsDiv.appendChild(createInput);
 
+    // Submit
     var createSubmit = document.createElement("button");
     createSubmit.setAttribute("type", "submit");
     createSubmit.setAttribute("id", "Submit");
@@ -144,6 +178,7 @@ function allDone() {
 
     questionsDiv.appendChild(createSubmit);
 
+    // Event listener captures user initials and local storage for initials and score
     createSubmit.addEventListener("click", function () {
         var initials = createInput.value;
 
@@ -166,6 +201,8 @@ function allDone() {
             allScores.push(finalScore);
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
+
+            // Final page
             window.location.replace("./HighScores.html");
         }
     });
