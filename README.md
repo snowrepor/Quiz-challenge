@@ -25,7 +25,7 @@ Media queries for max-width: 980px, 786px, 640px.
 
 Here is an image of the Web APIs Challenge: Code Quiz:
 
-![Top-Page-Area](./assets/images/img1.JPG?raw=true "Top-Page-Area")
+![Top-Page-Area](./images/img1.JPG?raw=true "Top-Page-Area")
 <!-- Home page -->
 
 <a name="web-address"></a>
@@ -43,19 +43,19 @@ https://snowrepor.github.io/Quiz-challenge/
 
 User will answer the questions after clicking the "Ready to Play!" button:
 
-![nav-menu](./assets/images/img2.JPG?raw=true "Navigational Menu")
+![nav-menu](./images/img2.JPG?raw=true "Navigational Menu")
 
 User correct answer.
 
-![nav-menu](./assets/images/img3.JPG?raw=true "Navigational Menu")
+![nav-menu](./images/img3.JPG?raw=true "Navigational Menu")
 
 User incorrect answer and time penalty.
 
-![nav-menu](./assets/images/img4.JPG?raw=true "Navigational Menu")
+![nav-menu](./images/img4.JPG?raw=true "Navigational Menu")
 
 Enter user initials.
 
-![nav-menu](./assets/images/img5.JPG?raw=true "Navigational Menu")
+![nav-menu](./images/img5.JPG?raw=true "Navigational Menu")
 
 High Scores page Back and Clear buttons. This has shown knowledge and application of variables, including arrays with object, event listeners, if/else if statements, for loops, functions, local storage set and, get.
 
