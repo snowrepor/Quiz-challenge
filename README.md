@@ -33,8 +33,8 @@ Here is an image of the Web APIs Challenge: Code Quiz:
 
 ### Click or Copy and Paste the link below into preferred browser to see the full Quiz-challenge! 
 
-https://snowrepor.github.io/Javascript-password-generator/
-<!-- Fix URL link -->
+https://snowrepor.github.io/Quiz-challenge/
+
 <a name="usage"></a>
 ## 3. Sample of the Quiz-challenge.
 
